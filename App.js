@@ -5,9 +5,9 @@ import {View,Text} from 'react-native'
 
 function App() {
   return (
-   <AuthProvider>
+  
       <Navigation/>
-   </AuthProvider>
+  
   )
 }
 

@@ -8,16 +8,17 @@ export const AuthContext = createContext();
 
 
 export const AuthProvider = ({children}) => {
-    const logIn = (username,password) => {
-        axios.post(`${BASE_URL}/login`,{
-            username,password
-        }).then (res => {
-            let userInfo=res.data;
-            console.log(userInfo);
-            AsyncStorage.setItem('userInfo',JSON.stringify(userInfo));
-        }).catch(e => {
-            console.log(`LogIn Error${e}`);
-        });
+    const logIn = async (username,password) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.post('/login', data)
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
     }
    
     return(
